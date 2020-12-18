@@ -1,0 +1,138 @@
+==================
+ptlExample
+==================
+#define myvar 4
+#define myvartwo 2
+GlobalSettings
+{
+	Display
+	{
+		debugLevel = $(myvar)
+		debugLevelzap = 3
+	}
+	Memory
+	{
+		allowStackAllocation = false
+	}
+}
+Domain
+{
+	blockDim = [1, 2, 2]
+	coolio = @sqrt($(myvartwo))
+}
+//parallel
+---
+(source_file
+	(preprocessor_definition
+		(preprocessor_name
+			(string_identifier)
+		)
+		(rvalue_statement
+			(basic_identifier
+				(number_identifier)
+			)
+		)
+	)
+	(preprocessor_definition
+		(preprocessor_name
+			(string_identifier)
+		)
+		(rvalue_statement
+			(basic_identifier
+				(number_identifier)
+			)
+		)
+	)
+	(section_identifier
+		(string_identifier)
+		(section_identifier
+			(string_identifier)
+			(assignment
+				(string_identifier)
+				(assign_sym)
+				(rvalue_statement
+					(variable_invocation
+						(variable_invoke_sym)
+						(rvalue_statement
+							(basic_identifier
+								(string_identifier)
+							)
+						)
+					)
+				)
+			)
+			(assignment
+				(string_identifier)
+				(assign_sym)
+				(rvalue_statement
+					(basic_identifier
+						(number_identifier)
+					)
+				)
+			)
+		)
+		(section_identifier
+			(string_identifier)
+			(assignment
+				(string_identifier)
+				(assign_sym)
+				(rvalue_statement
+					(basic_identifier
+						(boolean_identifier)
+					)
+				)
+			)
+		)
+	)
+	(section_identifier
+		(string_identifier)
+		(assignment
+			(string_identifier)
+			(assign_sym)
+			(rvalue_statement
+				(vector
+					(rvalue_statement
+						(basic_identifier
+							(number_identifier)
+						)
+					)
+					(rvalue_statement
+						(basic_identifier
+							(number_identifier)
+						)
+					)
+					(rvalue_statement
+						(basic_identifier
+							(number_identifier)
+						)
+					)
+				)
+			)
+		)
+		(assignment
+			(string_identifier)
+			(assign_sym)
+			(rvalue_statement
+				(function_invocation
+					(function_invocation_sym)
+					(string_identifier)
+					(parameter_list
+						(rvalue_statement
+							(variable_invocation
+								(variable_invoke_sym)
+								(rvalue_statement
+									(basic_identifier
+										(string_identifier)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(comment
+		(string_identifier)
+	)
+)

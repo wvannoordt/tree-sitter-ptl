@@ -1,0 +1,17 @@
+{
+    "name": "tree-sitter-ptl",
+    "version": "0.0.1",
+    "description": null,
+    "main": "index.js",
+    "repository": null,
+    "author": "W. van Noordt",
+    "license": "MIT",
+    "devDependencies":
+    {
+        "tree-sitter-cli": "^0.13.5"
+    },
+    "scripts":
+    {
+        "build": "tree-sitter generate && node-gyp build"
+    }
+}

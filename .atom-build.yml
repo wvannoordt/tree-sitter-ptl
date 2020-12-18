@@ -1,0 +1,1 @@
+cmd: 'npm run build && node-gyp build && tree-sitter test'
