@@ -1,6 +1,12 @@
 module.exports = grammar({
     name: "ptl",
-
+    // Useful links:
+    // https://github.com/psmitt/metalanguage/blob/master/examples/ScopeList.ScopeList
+    // https://github.com/tree-sitter/tree-sitter/blob/master/cli/src/generate/rules.rs
+    // http://tree-sitter.github.io/tree-sitter/implementation#grammar-rules
+    // https://github.com/atom/language-html/blob/master/grammars/tree-sitter-html.cson
+    // https://gist.github.com/Aerijo/df27228d70c633e088b0591b8857eeef
+    // https://github.com/tree-sitter/tree-sitter-cpp/blob/master/grammar.js
     rules:
     {
         source_file: $ => repeat($._definition),
