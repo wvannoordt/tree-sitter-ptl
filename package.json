@@ -1,19 +1,20 @@
 {
     "name": "tree-sitter-ptl",
-    "version": "0.0.2",
+    "version": "0.0.6",
     "description": null,
     "main": "index.js",
     "repository": null,
     "author": "W. van Noordt",
     "license": "MIT",
     "devDependencies": {
-        "tree-sitter-cli": "^0.13.5"
+        "tree-sitter-cli": "^0.13.16"
     },
     "scripts": {
         "build": "tree-sitter generate && node-gyp build"
     },
     "dependencies": {
         "graceful-fs": "^4.2.4",
-        "nan": "^2.14.2"
+        "nan": "^2.14.2",
+        "tree-sitter": "^0.17.1"
     }
 }

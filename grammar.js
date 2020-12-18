@@ -7,6 +7,7 @@ module.exports = grammar({
     // https://github.com/atom/language-html/blob/master/grammars/tree-sitter-html.cson
     // https://gist.github.com/Aerijo/df27228d70c633e088b0591b8857eeef
     // https://github.com/tree-sitter/tree-sitter-cpp/blob/master/grammar.js
+    // https://stackoverflow.com/questions/64479973/compiled-against-different-node-module-version-tree-sitter-parser-atom-packag
     rules:
     {
         source_file: $ => repeat($._definition),
