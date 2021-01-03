@@ -1,12 +1,14 @@
 {
     "name": "tree-sitter-ptl",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": null,
     "main": "index.js",
     "repository": null,
     "author": "W. van Noordt",
     "license": "MIT",
     "devDependencies": {
+        "electron": "^6.1.12",
+        "electron-rebuild": "^2.3.4",
         "tree-sitter-cli": "^0.13.16"
     },
     "scripts": {

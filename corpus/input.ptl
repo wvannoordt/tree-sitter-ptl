@@ -2,15 +2,16 @@
 ptlExample
 ==================
 #define myvar 4
-#define myvartwo 2
+#define myvartwo -2.7899e-7//This is a tricky comment to handle
+#define myExpandedVariable @sqrt(7.65, $(myvar))
 GlobalSettings
 {
 	Display
 	{
-		debugLevel = $(myvar)
+		debugLevel = $(myvar) // this is an inline comment
 		debugLevelzap = 3
 	}
-	Memory
+	Memory_1
 	{
 		allowStackAllocation = false
 	}
@@ -18,12 +19,16 @@ GlobalSettings
 Domain
 {
 	blockDim = [1, 2, 2]
-	coolio = @sqrt($(myvartwo))
+	coolio = @sqrt($(myvartwo))  // this is another inline comment
 }
+some_global_definition = myStringIdentifier
 //parallel
 ---
 (source_file
 	(preprocessor_definition
+		(preprocessor_keyword
+			(preprocessor_keyword_define)
+		)
 		(preprocessor_name
 			(string_identifier)
 		)
@@ -34,12 +39,50 @@ Domain
 		)
 	)
 	(preprocessor_definition
+		(preprocessor_keyword
+			(preprocessor_keyword_define)
+		)
 		(preprocessor_name
 			(string_identifier)
 		)
 		(rvalue_statement
 			(basic_identifier
 				(number_identifier)
+			)
+		)
+	)
+	(comment
+		(comment_symbol)
+		(anything)
+	)
+	(preprocessor_definition
+		(preprocessor_keyword
+			(preprocessor_keyword_define)
+		)
+		(preprocessor_name
+			(string_identifier)
+		)
+		(rvalue_statement
+			(function_invocation
+				(function_invocation_sym)
+				(string_identifier)
+				(parameter_list
+					(rvalue_statement
+						(basic_identifier
+							(number_identifier)
+						)
+					)
+					(rvalue_statement
+						(variable_invocation
+							(variable_invoke_sym)
+							(rvalue_statement
+								(basic_identifier
+									(string_identifier)
+								)
+							)
+						)
+					)
+				)
 			)
 		)
 	)
@@ -60,6 +103,10 @@ Domain
 						)
 					)
 				)
+			)
+			(comment
+				(comment_symbol)
+				(anything)
 			)
 			(assignment
 				(string_identifier)
@@ -131,8 +178,22 @@ Domain
 				)
 			)
 		)
+		(comment
+			(comment_symbol)
+			(anything)
+		)
+	)
+	(assignment
+		(string_identifier)
+		(assign_sym)
+		(rvalue_statement
+			(basic_identifier
+				(string_identifier)
+			)
+		)
 	)
 	(comment
-		(string_identifier)
+		(comment_symbol)
+		(anything)
 	)
 )

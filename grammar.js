@@ -37,16 +37,23 @@ module.exports = grammar({
         variable_invocation: $ => seq($.variable_invoke_sym, '(', $.rvalue_statement, ')'),
         parameter_list: $ => commaSep1($.rvalue_statement),
         function_invocation: $ => seq($.function_invocation_sym, $.string_identifier, '(', $.parameter_list, ')'),
-        preprocessor_definition: $ => seq('#define ', $.preprocessor_name, ' ', $.rvalue_statement, '\n'),
+        preprocessor_definition: $ => seq($.preprocessor_keyword, ' ', $.preprocessor_name, ' ', $.rvalue_statement),
+        preprocessor_keyword: $ => choice
+        (
+            $.preprocessor_keyword_define
+        ),
+        preprocessor_keyword_define: $ => '#define',
         preprocessor_name: $ => choice($.string_identifier),
-        comment: $ => seq('//', $.string_identifier),
+        comment: $ => seq($.comment_symbol, $.anything),
+        comment_symbol: $ => '//',
         boolean_identifier: $ => choice
         (
             't', 'f', 'true', 'false'
         ),
-        number_identifier: $ => /[0123456789]/,
-        string_identifier: $ => /[a-zA-Z]+/,
+        number_identifier: $ => /[-.e0123456789]*/,
+        string_identifier: $ => /[a-zA-Z_0123456789]*/,
         function_invocation_sym: $ => '@',
+        anything: $ => /.*/,
         assign_sym: $ => '=',
         variable_invoke_sym: $ => '$'
     }

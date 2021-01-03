@@ -1,1 +1,2 @@
-cmd: 'npm run build && node-gyp build && tree-sitter test'
+# cmd: 'npm rebuild && npm run build && node-gyp build && tree-sitter test'
+cmd: 'rm -rf build && node-gyp configure && npm run build && tree-sitter test && node-gyp build && tree-sitter test'
