@@ -1,6 +1,6 @@
 {
     "name": "tree-sitter-ptl",
-    "version": "0.0.9",
+    "version": "0.0.11",
     "description": null,
     "main": "index.js",
     "repository": null,
@@ -12,7 +12,7 @@
         "tree-sitter-cli": "^0.13.16"
     },
     "scripts": {
-        "build": "tree-sitter generate && node-gyp build && node-gyp build"
+        "build": "tree-sitter generate && node-gyp configure && node-gyp build && tree-sitter test"
     },
     "dependencies": {
         "graceful-fs": "^4.2.4",

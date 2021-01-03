@@ -3,7 +3,7 @@ ptlExample
 ==================
 #define myvar 4
 #define myvartwo -2.7899e-7//This is a tricky comment to handle
-#define myExpandedVariable @sqrt(7.65, $(myvar))
+#define meqpa @sqrt(7.65, $(myvar))
 GlobalSettings
 {
 	Display

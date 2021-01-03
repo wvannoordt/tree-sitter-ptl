@@ -29,20 +29,22 @@ module.exports = grammar({
         ),
         basic_identifier: $ => choice
         (
+            $.boolean_identifier,
             $.number_identifier,
             $.string_identifier,
-            $.boolean_identifier
         ),
         vector: $ => seq('[', commaSep($.rvalue_statement) , ']'),
         variable_invocation: $ => seq($.variable_invoke_sym, '(', $.rvalue_statement, ')'),
         parameter_list: $ => commaSep1($.rvalue_statement),
         function_invocation: $ => seq($.function_invocation_sym, $.string_identifier, '(', $.parameter_list, ')'),
+        preprocessor_keyword_define: $ => '#define',
+        preprocessor_keyword_if: $ => '#if',
         preprocessor_definition: $ => seq($.preprocessor_keyword, ' ', $.preprocessor_name, ' ', $.rvalue_statement),
         preprocessor_keyword: $ => choice
         (
-            $.preprocessor_keyword_define
+            $.preprocessor_keyword_define,
+            $.preprocessor_keyword_if
         ),
-        preprocessor_keyword_define: $ => '#define',
         preprocessor_name: $ => choice($.string_identifier),
         comment: $ => seq($.comment_symbol, $.anything),
         comment_symbol: $ => '//',
@@ -50,8 +52,8 @@ module.exports = grammar({
         (
             't', 'f', 'true', 'false'
         ),
-        number_identifier: $ => /[-.e0123456789]*/,
-        string_identifier: $ => /[a-zA-Z_0123456789]*/,
+        number_identifier: $ => /[-.e\d]+/,
+        string_identifier: $ => /[a-zA-Z_\d]+/,
         function_invocation_sym: $ => '@',
         anything: $ => /.*/,
         assign_sym: $ => '=',

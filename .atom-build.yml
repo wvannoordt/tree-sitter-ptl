@@ -1,2 +1,2 @@
-# cmd: 'npm rebuild && npm run build && node-gyp build && tree-sitter test'
-cmd: 'rm -rf build && node-gyp configure && npm run build && tree-sitter test && node-gyp build && tree-sitter test'
+cmd: 'rm -rf build src binding.gyp index.js package-lock.json && tree-sitter generate && node-gyp configure && node-gyp build && tree-sitter test'
+# cmd: 'rm -rf build && node-gyp configure && npm run build && tree-sitter test && node-gyp build && tree-sitter test'

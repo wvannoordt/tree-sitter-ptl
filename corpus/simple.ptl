@@ -1,0 +1,16 @@
+==================
+simpleDebug
+==================
+stringvar = 0
+---
+(source_file
+    (assignment
+        (string_identifier)
+        (assign_sym)
+        (rvalue_statement
+            (basic_identifier
+                (number_identifier)
+            )
+        )
+    )
+)
