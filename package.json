@@ -12,7 +12,7 @@
         "tree-sitter-cli": "^0.13.16"
     },
     "scripts": {
-        "build": "tree-sitter generate && node-gyp configure && node-gyp build && tree-sitter test"
+        "build": "tree-sitter generate && node-gyp configure && node-gyp build && tree-sitter test && electron-rebuild"
     },
     "dependencies": {
         "graceful-fs": "^4.2.4",
